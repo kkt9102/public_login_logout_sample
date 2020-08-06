@@ -31,7 +31,7 @@ if ( $member['loginPw'] != $_REQUEST['loginPw'] ) {
 $_SESSION['loginedMemberId'] = $member['id'];
 $_SESSION['loginedMember'] = $member;
 
-jsAlert("로그인 성공,{$member['name']}님 환영합니다");
+jsAlert("로그인 성공,{$member['name']}님 환영합니다.");
 jsLocationReplace("/admin/home/main.php");
 // 'id' 와 'pw'가 일치할 경우
 

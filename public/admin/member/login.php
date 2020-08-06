@@ -15,7 +15,7 @@ $pageTitle = '로그인';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/admin/head.php';
 ?>
 
-<div class="con table-box form1" action="doLogin.php" method="POST">
+<form class="con table-box form1" action="doLogin.php" method="POST">
     <!-- method 를 "POST"로 하는 이유는 주소창에 아이디와 비밀번호 노출을 막기위해 꼭 써준다 -->
     <table>
         <colgroup>
@@ -35,7 +35,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/admin/head.php';
                 <th>비밀번호</th>
                 <td>
                     <div class="form-control">
-                        <input type="password" maxlength="20" placeholder="비밀번호를 입력해주세요." require>
+                        <input name="loginPw" type="password" maxlength="20" placeholder="비밀번호를 입력해주세요." require>
                     </div>
                 </td>
             </tr>
@@ -43,13 +43,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/admin/head.php';
                 <th>로그인</th>
                 <td>
                     <div class="form-control">
-                        <button name="loginPw" type="submit" class="btn btn-primary">로그인</button>
+                        <button type="submit" class="btn btn-primary">로그인</button>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</div>
+</form>
 
 <?php
 // 관리자 페이지 공통 하단
