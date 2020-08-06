@@ -1,3 +1,10 @@
+
+<!--
+    $config = [];
+    $config['needToLogin'] = false;
+    //이부분을 빼면 로그인 없이는 들어올 수 없는 페이지가 된다
+    -->
+
 <?php
 // 관리자 페이지들을 위한 공통 작업
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../init/admin.php';

@@ -14,11 +14,34 @@ a {
     color:inherit;
     text-decoration: none;
 }
-/* lib */
+/* 라이브러리 */
 .con {
     margin-left: auto;
     margin-right: auto;
 }
+.height-100p {
+    height: 100px;
+}
+.text-align-center {
+    text-align: center;
+}
+.img-box {
+    width: 100%;
+    display: block;
+}
+.flex {
+    display: flex;
+}
+.flex-ai-c {
+    align-items: center;
+}
+.flex-jc-c {
+    justify-content: center;
+}
+.flex-jc-sb {
+    justify-content: space-between;
+}
+
 /* 테이블 관련 커스텀 */
 .table-box > table {
     width: 100%;
