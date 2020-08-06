@@ -25,7 +25,7 @@ require_once __DIR__ . '/../app/app.php';
 
 
 
-if (  App::isLogined() and $config['needToLogin'] == false ) {
+if ( $config['needToLogin'] and App::isLogined() == false ) {
     // 만약 로그인이 되어있지 않다면
     //if ( $config['needToLogin'] and App::isLogined() == false ) 이렇게는 undefind가 뜸
     jsAlert('로그인 후 이용해주세요.');

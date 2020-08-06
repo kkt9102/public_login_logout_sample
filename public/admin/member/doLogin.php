@@ -12,8 +12,26 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../init/admin.php';
 
 // doLogin.php 페이지는 잠깐 머물다 떠나는 페이지이다
 
+
 $member = MemberService::getMemberByLoginId($_REQUEST['loginId']);
 
+if ( empty($member) ) {
+    jsAlert("해당 회원은 존재하지 않습니다.");
+    jsHistoryBack();
+}
+// 'id'가 일치하지 않을 경우
+
+if ( $member['loginPw'] != $_REQUEST['loginPw'] ) {
+    jsAlert("비밀번호가 일치하지 않습니다.");
+    jsHistoryBack();
+}
+// 'pw'가 일치 하지 않을 경우
 
 
-// https://www.youtube.com/watch?v=whdi4mu_OvA    1:12:00 영상 봐야함
+$_SESSION['loginedMemberId'] = $member['id'];
+$_SESSION['loginedMember'] = $member;
+
+jsAlert("로그인 성공,{$member['name']}님 환영합니다");
+jsLocationReplace("/admin/home/main.php");
+// 'id' 와 'pw'가 일치할 경우
+

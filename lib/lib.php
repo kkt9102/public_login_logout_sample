@@ -14,26 +14,31 @@ function jsLocationReplace(string $url) {
 }
 
 
-function DB__execute($sql) {
-    // DB__execute($sql) 은 $sql을 실행한다는 뜻
-
-    global $config;
-    //global $config는 외부에서 사용된 $config를 가져온다
-    return mysql_query($config['dbConn'], $sql);
+function jsHistoryBack() {
+    echo "<script> history.back(); </script>";
+    exit;
 }
 
-function DB__getDBRow($sql) {
-    $re = DB__execute($sql);
+function DB__execute($sql) {
+    // DB__execute($sql) 은 $sql을 실행한다는 뜻
+    global $config;
+    //global $config는 외부에서 사용된 $config를 가져온다
+    return mysqli_query($config['dbConn'], $sql);
+}
+
+function DB__getDBRows($sql) {
+    $rs = DB__execute($sql);
 
     $rows = [];
-    while ( $row = mysql_fetch_assoc($rs) ){
-        $rows [] = $row;
+    
+    while ( $row = mysqli_fetch_assoc($rs) ) {
+        $rows[] = $row;
     }
     return $rows;
 }
 
 function DB__getDBRow($sql) {
-    $rows = DB__getDBRow($sql);
+    $rows = DB__getDBRows($sql);
 
     if ( isset($rows[0]) ) {
         return $rows[0];
