@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../init/admin.php';
 
 $pageTitle = '게시판 관리';
 // 관리자 페이지 공통 상단
-require_once $_SERVER['DOUCUMENT_ROOT'] . '/../part/admin/head.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/admin/head.php';
 
 $boards = ArticleService::getForPrintBoards();
 ?>
@@ -45,4 +45,4 @@ $boards = ArticleService::getForPrintBoards();
 
 <?php
 // 관리자 페이지 공통 하단
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/adm/foot.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/admin/foot.php';

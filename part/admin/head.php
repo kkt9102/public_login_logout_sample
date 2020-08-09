@@ -3,10 +3,9 @@
 
 <head>
     <?php require_once __DIR__ . '/../common.php'; ?>
+    
     <title><?=$config['siteName']?>관리자 페이지</title>
 
-    <link rel="stylesheet" href="/resource/common.css">
-    <link rel="stylesheet" href="/resource/app.css">
     <link rel="stylesheet" href="/resource/admin/app.css">
 </head>
 
