@@ -34,3 +34,24 @@ class MemberDao {
         return DB__getDBRow($sql);
     }
 }
+
+
+class ArticleService {
+    public static function getForPrintBoards(): array {
+        return ArticleDao::getForPrintBoards();
+    }
+}
+//게시물관리 클릭시 해당 페이지로 이동하기위해 'ArticleDao에게 요정한다
+
+class ArticleDao {
+    public static function getForPrintByBoards(): array {
+        // login을 했을 때 맴버 ID를 가져온다
+        // MemberDao는 직접 DB와 통신을 한다
+        $sql = "
+        SELECT *
+        FROM board
+        ORDER BY id DESC
+        ";
+        return DB__getDBRows($sql);
+    }
+}

@@ -14,13 +14,13 @@
 
     <div class="top-bar">
         <div class="con height-100p flex flex-jc-sb">
-            <a href="/" class="logo flex flex-ai-c">로고용</a>
+            <a href="" class="logo flex flex-ai-c"><i class="far fa-eye"></i></a>
 
             <nav>
                 <ul class="flex height-100p">
                     <li><a href="" class="flex flex-ai-c height-100p">홈</a></li>
                     <li><a href="/admin/board/list.php" class="flex flex-ai-c height-100p">게시판 관리</a></li>
-                    <li><a href="" class="flex flex-ai-c height-100p">게시물 관리</a></li>
+                    <li><a href="/" class="flex flex-ai-c height-100p">게시물 관리</a></li>
                     <?php if ( App::isLogined() ) { ?>
 
                     <li>
