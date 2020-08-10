@@ -47,12 +47,12 @@ CREATE TABLE `article` (
     memberId INT(10) UNSIGNED NOT NULL, # 작성자 ID
     `title` CHAR(100) NOT NULL, # 제목
     `body` TEXT NOT NULL, # 내용
-    `replyBody` TEXT NOT NULL, # 응답내용
+    parentId INT(10) UNSIGNED NOT NULL, # 응답내용
     displayStatus TINYINT(1) UNSIGNED NOT NULL, # 노출상태
     delStatus TINYINT(1) UNSIGNED NOT NULL, # 삭제상태
     delDate DATETIME NOT NULL, # 삭제날짜
-    typeCode CHAR(20) NOT NULL, # 1차 카테고리
-    type2Code CHAR(20) NOT NULL, # 2차 카테고리
+    cateCode CHAR(20) NOT NULL, # 1차 카테고리
+    cate2Code CHAR(20) NOT NULL, # 2차 카테고리
     readStatus TINYINT(1) UNSIGNED NOT NULL, # 수신자의 읽기 상태
     readDate DATETIME NOT NULL, # 수신자의 읽은 날짜
     completeStatus TINYINT(1) UNSIGNED NOT NULL, # 완료상태

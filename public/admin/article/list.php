@@ -6,7 +6,7 @@ $pageTitle = '게시물 관리';
 // 관리자 페이지 공통 상단
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/admin/head.php';
 
-$articles = ArticleService::getForPrintArticles();
+$articles = ArticleService::getForPrintArticles($_REQUEST);
 ?>
 
 <!-- 게시판 리스트 HTML -->

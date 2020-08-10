@@ -70,6 +70,36 @@ function DB__getDBRow($sql) {
     }
     return [];
 }
+
+function DB__getDBRowIntValue($sql, $default) : int {
+    $row = DB__getDBRows($sql);
+
+    if ( empty($row) ) {
+        // 만약 $row가 0이면은 
+        return $default;
+    }
+
+    foreach ( $row as $val ) {
+        return $val;
+    }
+}
+// 값이 
+
+
+
+function DB__getDBRowStrinValue($sql, $default) : strin {
+    $row = DB__getDBRows($sql);
+
+    if ( empty($row) ) {
+        return $default;
+    }
+
+    foreach ( $row as $val ) {
+        return $val;
+    }
+}
+// 값을 하나만 가쟈온다
+
 // isset으로 변수가 설정되었는지 확인
 
 function filterSqlInjection(&$args) {
@@ -82,4 +112,13 @@ function filterSqlInjection(&$args) {
 function DB_insert($sql) {
     DB__execute($sql);
     return mysqli_insert_id($config['dbConn']);
+}
+
+function getArrValue(&$arr, $key, $default) {
+    // &를 써주는 이유는메모리 절약을 위해...
+    if ( isset($arr[$key]) ) {
+        return $arr[$key];
+    }
+    
+    return $default;
 }
