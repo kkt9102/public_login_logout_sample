@@ -1,13 +1,13 @@
-drop database phpSiteTemplate;
-create database phpSiteTemplate;
-use phpSiteTemplate;
+DROP DATABASE phpSiteTemplate;
+CREATE DATABASE phpSiteTemplate;
+USE phpSiteTemplate;
 
-create table `member` (
-    id int(10) unsigned not null primary key auto_increment, # 번호
-    regDate datetime not null, # 생성날짜
-    updateDate datetime not null, # 수정날짜
-    loginId char(50) not null unique, # 로그인 아이디
-    loginPw char(200) not null, # 로그인 비번
+CREATE TABLE `member` (
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT, # 번호
+    regDate DATETIME NOT NULL, # 생성날짜
+    updateDate DATETIME NOT NULL, # 수정날짜
+    loginId CHAR(50) NOT NULL UNIQUE, # 로그인 아이디
+    loginPw CHAR(200) NOT NULL, # 로그인 비번
     `name` CHAR(100) NOT NULL, # 이름
     `nickname` CHAR(100) NOT NULL, # 닉네임
     `email` CHAR(100) NOT NULL, # 이메일
@@ -15,8 +15,8 @@ create table `member` (
 );
 
 # 관리자 회원 생성
-insert into `member`
-set regDate = NOW(),
+INSERT INTO `member`
+SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'admin',
 loginPw = 'admin',
@@ -32,20 +32,28 @@ CREATE TABLE `board` (
     `code` CHAR(20) NOT NULL # 게시판 코드
 );
 
+# 게시판 생성
+INSERT INTO `board`
+SET regDate = NOW(),
+updateDate = NOW(),
+`name` = '공지사항',
+`code` = '공지사항';
+
 CREATE TABLE `article` (
     id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT, # 번호
     regDate DATETIME NOT NULL, # 생성날짜
     updateDate DATETIME NOT NULL, # 수정날짜
-    boardId int(10) unsigned not null, # 게시판 ID
-    memberId int(10) unsigned not null, # 작성자 ID
-    `body` text NOT NULL, # 내용
+    boardId INT(10) UNSIGNED NOT NULL, # 게시판 ID
+    memberId INT(10) UNSIGNED NOT NULL, # 작성자 ID
+    `title` CHAR(100) NOT NULL, # 제목
+    `body` TEXT NOT NULL, # 내용
     `replyBody` TEXT NOT NULL, # 응답내용
-    displayStatus tinyint(1) unsigned not null, # 노출상태
-    delStatus tinyint(1) unsigned not null, # 삭제상태
-    delDate datetime NOT NULL, # 삭제날짜
-    typeCode char(20) not null, # 1차 카테고리
+    displayStatus TINYINT(1) UNSIGNED NOT NULL, # 노출상태
+    delStatus TINYINT(1) UNSIGNED NOT NULL, # 삭제상태
+    delDate DATETIME NOT NULL, # 삭제날짜
+    typeCode CHAR(20) NOT NULL, # 1차 카테고리
     type2Code CHAR(20) NOT NULL, # 2차 카테고리
-    readStatus tinyint(1) unsigned not null, # 수신자의 읽기 상태
+    readStatus TINYINT(1) UNSIGNED NOT NULL, # 수신자의 읽기 상태
     readDate DATETIME NOT NULL, # 수신자의 읽은 날짜
     completeStatus TINYINT(1) UNSIGNED NOT NULL, # 완료상태
     completeDate DATETIME NOT NULL, # 완료날짜
@@ -55,3 +63,11 @@ CREATE TABLE `article` (
     writerSnsType CHAR(20) NOT NULL, # 작성자 SNS 타입
     writerSnsId CHAR(20) NOT NULL # 작성자 SNS ID
 );
+
+
+# 게시물 생성
+INSERT INTO `article`
+SET regDate = NOW(),
+updateDate = NOW(),
+`title` = '제목1',
+`body` = '내용1';

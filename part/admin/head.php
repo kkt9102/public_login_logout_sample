@@ -19,7 +19,7 @@
                 <ul class="flex height-100p">
                     <li><a href="" class="flex flex-ai-c height-100p">홈</a></li>
                     <li><a href="/admin/board/list.php" class="flex flex-ai-c height-100p">게시판 관리</a></li>
-                    <li><a href="/" class="flex flex-ai-c height-100p">게시물 관리</a></li>
+                    <li><a href="/admin/article/list.php" class="flex flex-ai-c height-100p">게시물 관리</a></li>
                     <?php if ( App::isLogined() ) { ?>
 
                     <li>

@@ -78,3 +78,8 @@ function filterSqlInjection(&$args) {
         $args[$key] = mysqli_real_escape_string($config['dbConn'], $val);
     }
 }
+
+function DB_insert($sql) {
+    DB__execute($sql);
+    return mysqli_insert_id($config['dbConn']);
+}
